@@ -1,0 +1,19 @@
+{
+  "name": "odm",
+  "version": "1.0.0",
+  "description": "an application that will assist in storing information about SR progression through defined steps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rob Page",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5",
+    "express-handlebars": "^3.0.0",
+    "fs": "0.0.1-security",
+    "method-override": "^2.3.9",
+    "path": "^0.12.7"
+  }
+}
