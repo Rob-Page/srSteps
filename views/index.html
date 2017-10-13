@@ -1,14 +1,37 @@
 <html>
-  <head>
-    
-  </head>
-  <body>
+
+<head>
+</head>
+
+<body>
+    <form id="testForm" action="/api/new" method="POST">
+        <label for="sr_num">SR Number</label>
+        <input type="text" name="sr_num">
+        <label for="IC">Issue Clarification</label>
+        <input type="textarea" name="IC">
+        <label for="IV">Issue Verification</label>
+        <input type="textarea" name="IV">
+        <label for="CD">Cause Definition</label>
+        <input type="textarea" name="CD">
+        <label for="CV">Cause Verification</label>
+        <input type="textarea" name="CV">
+        <label for="PS">Possible Solutions</label>
+        <input type="textarea" name="PS">
+        <label for="SAP">Solution Action Plan</label>
+        <input type="textarea" name="SAP">
+        <label for="KC">Knowledge Creation</label>
+        <input type="textarea" name="KC">
+        <button id="testFormSubmit" type="submit" value="Submit">
+            TEST SUBMIT POST
+        </button>
+    </form>
     <button id="getTest">
-      TEST GET
+        TEST GET
     </button>
     <button id="postTest">
-      TEST POST
+        TEST POST
     </button>
     <script src="/public/js/script.js"></script>
-  </body>
+</body>
+
 </html>

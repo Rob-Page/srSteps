@@ -25,23 +25,10 @@ router.get("/api/:sr_number/:step", function(req, res) {
 });
 
 router.post("/api/:sr_number", function(req, res) {
-    //TODO: integrate this logic into the model rather than the controller
-    //logic check for data consistence between url sr and data sr
-    if (req.params.sr_number == req.body.sr_num) {
-        // GRAPS THE sr NUMBER from the url
-        // gets the data from the body as a JSON OBJECT
-        // calls the new function and passes in the call back and the sr number with data
-
-        sr_object.new(req.params.sr_number, req.body, function(result) {
-            res.end("Success sr object added")
-        });
-        // if the logic is true return success
-
-    } else {
-        // if the logic was not true tell the post origin the following message
-        res.end('ERROR:' + 'The sr number passed in through the url did not match the data');
-    }
-
+    console.log(req.body);
+    sr_object.new(req.body.sr_num, req.body, function(result) {
+        res.end("Success sr object added")
+    });
 });
 
 router.post("/api/:sr_number/:step", function(req, res) {
