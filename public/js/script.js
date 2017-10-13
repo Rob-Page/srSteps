@@ -6,9 +6,23 @@
  ******************************************************/
 function onloadController() {
     onclickGenerator();
+    //onload get the pram from the url and pass it in to see if there is anything we need
+    httpGetAsync("/api/" + getQueryVariable(), function(response) {
+            populateSR(JSON.parse(response));
+        });
 }
 //Run onloadController
 onloadController();
+
+function getQueryVariable(variable)
+{
+       //grab url params
+       var query = window.location.pathname;
+       //take out the /
+       var vars = query.split("/");
+       //return what is left
+       return vars[1];
+}
 /******************************************************
  * ONCLICKS
  * #getTest on click 
@@ -29,7 +43,8 @@ function onclickGenerator() {
             result[entry[0]] = entry[1];
         }
         httpPostAsyncJSON("/api/"+result.sr_num, result, function(response) {
-            console.log(response);
+            console.log(JSON.parse(response));
+
         });
     };
 
@@ -81,6 +96,10 @@ function onclickGenerator() {
     };
 }
 
+//TODO add in the population funcionality
+function populateSR(srObject) {
+    console.log(srObject.IC);
+}
 
 /******************************************************
  * HTTP GET ASYNC

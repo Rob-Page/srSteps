@@ -1,26 +1,34 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="/public/css/style.css">
 </head>
 
 <body>
     <form id="testForm" action="/api/new" method="POST">
         <label for="sr_num">SR Number</label>
         <input type="text" name="sr_num">
+        
         <label for="IC">Issue Clarification</label>
-        <input type="textarea" name="IC">
+        <textarea name="IC"></textarea>
         <label for="IV">Issue Verification</label>
-        <input type="textarea" name="IV">
+        <textarea name="IV"></textarea>
+
         <label for="CD">Cause Definition</label>
-        <input type="textarea" name="CD">
+        <textarea name="CD"></textarea>
+
         <label for="CV">Cause Verification</label>
-        <input type="textarea" name="CV">
+        <textarea name="CV"></textarea>
+
         <label for="PS">Possible Solutions</label>
-        <input type="textarea" name="PS">
+        <textarea name="PS"></textarea>
+
         <label for="SAP">Solution Action Plan</label>
-        <input type="textarea" name="SAP">
+        <textarea name="SAP"></textarea>
+
         <label for="KC">Knowledge Creation</label>
-        <input type="textarea" name="KC">
+        <textarea name="KC"></textarea>
+
         <button id="testFormSubmit" type="submit" value="Submit">
             TEST SUBMIT POST
         </button>

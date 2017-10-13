@@ -11,5 +11,8 @@ router.get("/", function(req, res) {
 		res.sendFile(path.join(__dirname, "../views/index.html"));
 });
 
+router.get("/:sr_number", function(req, res) {
+	res.sendFile(path.join(__dirname, "../views/index.html"));
+});
 // Export routes for server.js to use.
 module.exports = router;
