@@ -2,14 +2,24 @@
  * ON LOAD CONROLLER
  * populates all onlicks 
  * #postTest on click
- *
+ * 
  ******************************************************/
+
+//TODO add in funtionality to check if the SR exsists already as soon as the number is entered in, 
+// if it does alert the user and redirect to that SR, and add the save button
+// if it doesn't then add the create button
+
 function onloadController() {
     onclickGenerator();
     //onload get the pram from the url and pass it in to see if there is anything we need
-    httpGetAsync("/api/" + getQueryVariable(), function(response) {
+    var queryString = getQueryVariable();
+    //if the url has an SR attached to the end make a call out to the api and populate the SR
+    if(queryString){
+        httpGetAsync("/api/" + getQueryVariable(), function(response) {
+                console.log(getQueryVariable());
             populateSR(JSON.parse(response));
         });
+    }    
 }
 //Run onloadController
 onloadController();
@@ -42,8 +52,9 @@ function onclickGenerator() {
         for (var entry of formData.entries()) {
             result[entry[0]] = entry[1];
         }
-        httpPostAsyncJSON("/api/"+result.sr_num, result, function(response) {
-            console.log(JSON.parse(response));
+        console.log("Prepared result: ",result);
+        httpPostAsyncJSON("/api/"+ result.sr_num, result, function(response) {
+            console.log(response);
 
         });
     };
@@ -96,9 +107,13 @@ function onclickGenerator() {
     };
 }
 
-//TODO add in the population funcionality
 function populateSR(srObject) {
-    console.log(srObject.IC);
+    // get all the sr HTML objects
+    var inputs =  document.querySelectorAll('input, textarea');
+    // populate the by looping throuhg all the objects and assiging them the the value of the key that matches the input name (same crap you submited so it matches)
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = srObject[inputs[i].name];
+    }
 }
 
 /******************************************************
